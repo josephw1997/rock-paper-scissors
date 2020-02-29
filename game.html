@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Rock, Paper, Scissors</title>
+		<meta charset="UTF-8"/>
+	</head>
+	<body>
+	<script>
+
+		function computerPlay(){
+			let choices = ["Rock", "Paper", "Scissors"];
+			return choices[Math.floor(Math.random() * choices.length)];
+		}
+
+
+		function playRound(playerSelection, computerSelection){
+			let psLower = playerSelection.toLowerCase();
+			switch (true){
+				case psLower == "rock" && computerSelection == "Rock":
+				case psLower == "scissors" && computerSelection == "Scissors":
+				case psLower == "paper" && computerSelection == "Paper":
+					return "Tie!";
+					break;
+				case psLower == "scissors" && computerSelection == "Rock":
+				case psLower == "paper" && computerSelection == "Scissors":
+				case psLower == "rock" && computerSelection == "Paper":
+					return "You lose!";
+					break;
+				case psLower == "paper" && computerSelection == "Rock":
+				case psLower == "rock" && computerSelection == "Scissors":
+				case psLower == "scissors" && computerSelection == "Paper":
+					return "You win...";
+					break;
+				
+				default:
+					return "Please enter a valid choice";
+				
+			}
+		}
+
+const playerSelection = 'rock'
+const computerSelection = computerPlay()
+console.log(playRound(playerSelection, computerSelection))
+
+
+	</script>
+	</body>
+</html>
